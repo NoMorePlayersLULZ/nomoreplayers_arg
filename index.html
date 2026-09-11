@@ -10,7 +10,7 @@
 
     <div class="app-wrapper">
 
-        <!-- СЛАЙДБАР (Теперь 3 кнопки, лоры убрали) -->
+        <!-- СЛАЙДБАР -->
         <div class="nav-sidebar">
             <div class="nav-item active" onclick="switchTab('objects', this)">
                 <div class="nav-icon">👤</div>
@@ -26,6 +26,7 @@
             </div>
         </div>
 
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
@@ -33,7 +34,7 @@
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- КАРТОЧКА ГЕРОЯ ER_44 (Добавили функцию клика) -->
+                <!-- КАРТОЧКА ER_44 -->
                 <div class="character-card clickable" onclick="openJournal('er_44')">
                     <div class="avatar-box">
                         <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
@@ -48,7 +49,7 @@
                     </div>
                 </div>
 
-                <!-- КАРТОЧКА БОССА K0_X7 (Добавили функцию клика) -->
+                <!-- КАРТОЧКА БОССА K0_X7 -->
                 <div class="character-card clickable" onclick="openJournal('k0_x7')" style="margin-top: 25px; border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
                     <div class="avatar-box" style="border-color: #ff0033;">
                         <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
@@ -58,7 +59,7 @@
                         <h2 style="color: #ff0033;">OBJECT: K0_X7</h2>
                         <p><strong style="color: #ff0033;">КЛАСС:</strong> VIRUS</p>
                         <p><strong style="color: #ff0033;">СТАТУС:</strong> <span class="status-blink" style="color: #ff0033;">ACTIVE</span></p>
-                        <div class="hp-bar-text" style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
+                        <div class="hp-bar-text style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
                         <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
                     </div>
                 </div>
@@ -84,11 +85,11 @@
                 </div>
             </div>
 
-        </div>
+        </div> <!-- Конец main-content -->
 
-    </div>
+    </div> <!-- Конец app-wrapper -->
 
-    <!-- ТВОЙ КРУТОЙ ВЫЕЗЖАЮЩИЙ ЖУРНАЛ/БЛОКНОТ -->
+    <!-- ВЫЕЗЖАЮЩИЙ ЖУРНАЛ/БЛОКНОТ (Теперь он строго там, где нужно) -->
     <div id="journalPanel" class="bottom-journal">
         <div class="journal-header">
             <span id="journalTitle">[ЗАГРУЗКА ЖУРНАЛА...]</span>
