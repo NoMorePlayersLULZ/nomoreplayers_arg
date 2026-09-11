@@ -30,7 +30,6 @@
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
-            <!-- ВКЛАДКА: ОБЪЕКТЫ -->
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
@@ -65,7 +64,6 @@
                 </div>
             </div>
 
-            <!-- ВКЛАДКА: ЛОГИ -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
                 <div class="password-section">
@@ -76,7 +74,6 @@
                 </div>
             </div>
 
-            <!-- ВКЛАДКА: ФАЙЛЫ -->
             <div id="files" class="tab-content">
                 <p>Архив системных утилит. Все внешние зеркала отключены.</p>
                 <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
@@ -89,14 +86,33 @@
 
     </div>
 
-    <!-- ИНТЕРАКТИВНЫЙ БЛОКНОТ -->
-    <div id="journalPanel" class="bottom-journal">
-        <div class="journal-header">
-            <span id="journalTitle">[ЗАГРУЗКА...]</span>
-            <button class="close-btn" onclick="closeJournal()">X</button>
-        </div>
-        <div class="journal-body">
-            <div id="journalContent">Загрузка данных...</div>
+    <!-- 📕 ТВОЙ НОВЫЙ БЛОКНОТ ИЗ DOORS (Всплывает по центру поверх всего) -->
+    <div id="notebookOverlay" class="notebook-overlay" onclick="closeJournal()">
+        <div class="doors-notebook" onclick="event.stopPropagation()">
+            
+            <button class="notebook-close" onclick="closeJournal()">✕</button>
+            
+            <!-- Левая страница -->
+            <div class="page page-left">
+                <div class="page-number">5</div>
+                <h2 id="nbTitleLeft" class="handwritten-title">Name</h2>
+                <div id="nbContentLeft" class="handwritten-text">Текст слева...</div>
+            </div>
+
+            <!-- Пружина посередине -->
+            <div class="notebook-spine">
+                <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+                <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+                <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+                <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+            </div>
+
+            <!-- Правая страница -->
+            <div class="page page-right">
+                <div class="page-number">6</div>
+                <div id="nbContentRight" class="handwritten-text">Текст справа...</div>
+            </div>
+
         </div>
     </div>
 
