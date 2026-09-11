@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoMorePlayersLULZ // ARCHIVE</title>
-    <!-- Подключаем внешние стили -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +15,6 @@
                 <div class="nav-icon">👤</div>
                 <span>Объекты</span>
             </div>
-            <!-- НОВАЯ ВКЛАДКА ЛОРЫ -->
             <div class="nav-item" onclick="switchTab('lore', this)">
                 <div class="nav-icon">📜</div>
                 <span>Лоры</span>
@@ -34,10 +32,10 @@
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
-            <!-- ВКЛАДКА 1: ОБЪЕКТЫ -->
             <div id="objects" class="tab-content active">
-                <p>База данных активных учетных записей. Обнаружен один уцелевший профиль:</p>
+                <p>База данных активных учетных записей. Обнаружены следующие профили:</p>
                 
+                <!-- КАРТОЧКА ГЕРОЯ ER_44 -->
                 <div class="character-card">
                     <div class="avatar-box">
                         <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
@@ -51,9 +49,24 @@
                         <div class="hp-container"><div class="hp-bar"></div></div>
                     </div>
                 </div>
+
+                <!-- КАРТОЧКА БОССА K0_X7 -->
+                <div class="character-card" style="margin-top: 25px; border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
+                    <div class="avatar-box" style="border-color: #ff0033;">
+                        <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
+                        <div class="scanline" style="background: rgba(255, 0, 51, 0.5);"></div>
+                    </div>
+                    <div class="char-info">
+                        <h2 style="color: #ff0033;">OBJECT: K0_X7</h2>
+                        <p><strong style="color: #ff0033;">КЛАСС:</strong> VIRUS</p>
+                        <p><strong style="color: #ff0033;">СТАТУС:</strong> <span class="status-blink" style="color: #ff0033;">ACTIVE</span></p>
+                        <div class="hp-bar-text" style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
+                        <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- НОВОЕ СОДЕРЖИМОЕ ВКЛАДКИ 2: ЛОРЫ -->
             <div id="lore" class="tab-content">
                 <p>Архивные текстовые данные о субъектах системы NoMorePlayersLULZ:</p>
                 
@@ -72,7 +85,6 @@
                 </div>
             </div>
 
-            <!-- ВКЛАДКА 3: ЛОГИ -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
                 
@@ -84,7 +96,6 @@
                 </div>
             </div>
 
-            <!-- ВКЛАДКА 4: ФАЙЛЫ -->
             <div id="files" class="tab-content">
                 <p>Архив системных утилит. Все внешние зеркала отключены.</p>
                 <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
@@ -97,7 +108,6 @@
 
     </div>
 
-    <!-- Подключаем внешние скрипты -->
     <script src="script.js"></script>
 
 </body>
