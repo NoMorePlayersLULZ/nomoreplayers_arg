@@ -17,6 +17,7 @@ function openJournal(charId) {
     var titleLeft = document.getElementById("nbTitleLeft");
     var contentLeft = document.getElementById("nbContentLeft");
     var contentRight = document.getElementById("nbContentRight");
+    var journal = document.getElementById("journalPanel");
 
     if (charId === 'er_44') {
         titleLeft.innerText = "ER_44 (Авенлл)";
@@ -48,8 +49,7 @@ function openJournal(charId) {
             <p>Процесс K0_X7 ломает сервера R6 изнутри. Он питается одиночеством игроков. Если ты зашел на server и свет начал мигать — беги. <span class="scary-word">БЕГИ.</span> Прятаться бесполезно. <span class="scary-word">ОНО</span> <span class="scary-word">ИДЕТ</span> <span class="scary-word">ЗА</span> <span class="scary-word">ТОБОЙ.</span></p>
         `;
     } else if (charId === 'unknown') {
-        // ЛОР-ЗАГЛУШКА ДЛЯ ТВОЕГО СЕКРЕТНОГО ОБЪЕКТА ???
-        journalPanel.style.borderColor = "#555555";
+        // ТЕПЕРЬ ТУТ СТРОГО СЕКРЕТНЫЙ ЛОГ ???
         titleLeft.innerText = "ОБЪЕКТ: ???";
         titleLeft.style.color = "#555555";
         
