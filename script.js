@@ -37,7 +37,6 @@ function openJournal(charId) {
         titleLeft.innerText = "K0_X7 (ШВЫ)";
         titleLeft.style.color = "#b81414";
         
-        // Каждое слово запечатано отдельно, теперь скрипт его точно поймает
         contentLeft.innerHTML = `
             <p><span class="scary-word">ВНИМАНИЕ:</span> <span class="scary-word">СИСТЕМНЫЙ</span> <span class="scary-word">ВИРУС.</span></p>
             <p>Оно маскируется под старые мифы. Изменяет галстуки, носит искажённую корону, но главное — его руки. На них нанесены огромные "ШВЫ". Похоже, он сшивает себя из чужих данных.</p>
@@ -46,7 +45,24 @@ function openJournal(charId) {
         
         contentRight.innerHTML = `
             <p style="color: #59473c; font-style: italic;">...Текст частично залит кровью</p>
-            <p>Процесс K0_X7 ломает сервера R6 изнутри. Он питается одиночеством игроков. Если ты зашел на сервер и свет начал мигать — беги. <span class="scary-word">БЕГИ.</span> Прятаться бесполезно. <span class="scary-word">ОНО</span> <span class="scary-word">ИДЕТ</span> <span class="scary-word">ЗА</span> <span class="scary-word">ТОБОЙ.</span></p>
+            <p>Процесс K0_X7 ломает сервера R6 изнутри. Он питается одиночеством игроков. Если ты зашел на server и свет начал мигать — беги. <span class="scary-word">БЕГИ.</span> Прятаться бесполезно. <span class="scary-word">ОНО</span> <span class="scary-word">ИДЕТ</span> <span class="scary-word">ЗА</span> <span class="scary-word">ТОБОЙ.</span></p>
+        `;
+    } else if (charId === 'unknown') {
+        // ЛОР-ЗАГЛУШКА ДЛЯ ТВОЕГО СЕКРЕТНОГО ОБЪЕКТА ???
+        journalPanel.style.borderColor = "#555555";
+        titleLeft.innerText = "ОБЪЕКТ: ???";
+        titleLeft.style.color = "#555555";
+        
+        contentLeft.innerHTML = `
+            <p style="color: #555; font-weight: bold; font-style: italic;">КЛАСС: НЕИЗВЕСТНО // ДАННЫЕ ИСКАЖЕНЫ</p>
+            <p>Файлы этого субъекта полностью стерты или заблокированы на глубинном уровне системы. Нет информации о внешности, дате создания профиля или инвентаре.</p>
+            <div style="width: 140px; height: 140px; border: 2px dashed #555; margin: 20px auto; display: flex; align-items: center; justify-content: center; color: #555; font-size: 32px;">?</div>
+        `;
+        
+        contentRight.innerHTML = `
+            <p>...Критическая ошибка чтения</p>
+            <p>Единственное, что удалось вытащить из поврежденных секторов памяти — это бесконечный системный код статуса: <strong>-129019208941897</strong>.</p>
+            <p style="color: #888; font-style: italic; margin-top: 30px;">Данный блокнот будет обновлен, как только архиватор NoMorePlayersLULZ обнаружит стабильные следы этого игрока в коде плейса.</p>
         `;
     }
 
@@ -58,7 +74,6 @@ function closeJournal() {
     if (overlay) { overlay.classList.remove("open"); }
 }
 
-// Постоянный слушатель мышки, работает всегда, когда блокнот открыт
 document.addEventListener('mousemove', function(e) {
     var words = document.getElementsByClassName('scary-word');
     if (words.length === 0) return;
@@ -74,7 +89,6 @@ document.addEventListener('mousemove', function(e) {
         var diffY = e.clientY - wordY;
         var distance = Math.sqrt(diffX * diffX + diffY * diffY);
         
-        // Расстояние срабатывания увеличено до 80 пикселей под крупный экран
         if (distance < 80) {
             var angle = Math.atan2(diffY, diffX);
             var pushX = -Math.cos(angle) * 45;
