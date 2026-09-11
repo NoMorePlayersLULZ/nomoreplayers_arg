@@ -101,17 +101,13 @@ body {
 }
 
 /* ИСПРАВЛЕННАЯ РАМКА ДЛЯ АВАТАРКИ */
-.avatar-box {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border: 1px solid #00ff33;
-    background: #000;
-    overflow: hidden; /* Этот параметр теперь режет всё, что выходит за рамку */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.avatar-box img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Растягивает картинку на всю рамку без искажений */
+    object-position: center; /* Центрирует персонажа */
 }
+
 
 /* ИСПРАВЛЕННОЕ ПОВЕДЕНИЕ КАРТИНКИ ВНУТРИ */
 .avatar-box img { 
