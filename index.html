@@ -10,7 +10,7 @@
 
     <div class="app-wrapper">
 
-        <!-- НАВИГАЦИЯ -->
+        <!-- МЕНЮ НАВИГАЦИИ -->
         <div class="nav-sidebar">
             <div class="nav-item active" onclick="switchTab('objects', this)">
                 <div class="nav-icon">👤</div>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <!-- ОСНОВНОЙ БЛОК -->
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
@@ -34,9 +34,8 @@
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- НОВЫЙ КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ В РЯД -->
                 <div class="cards-grid">
-                
+                    
                     <!-- КАРТОЧКА ER_44 -->
                     <div class="character-card clickable" onclick="openJournal('er_44')">
                         <div class="avatar-box">
@@ -65,12 +64,12 @@
                         </div>
                     </div>
 
-                    <!-- СЕКРЕТНАЯ КАРТОЧКА ??? -->
-                    <div class="character-card clickable" onclick="openJournal('unknown')" style="border-color: #555; box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);">
-                        <div class="avatar-box" style="border-color: #555; background: #111;">
+                    <!-- СЕКРЕТНАЯ КАРТОЧКА ДЛЯ ВЗЛОМА -->
+                    <div id="secretCard" class="character-card clickable" onclick="openJournal('unknown')" style="border-color: #555; box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);">
+                        <div id="secretAvatarBox" class="avatar-box" style="border-color: #555; background: #111;">
                             <div style="font-size: 48px; color: #555; display: flex; align-items: center; justify-content: center; height: 100%;">?</div>
                         </div>
-                        <div class="char-info">
+                        <div id="secretInfoBox" class="char-info">
                             <h2 style="color: #888;">OBJECT: ???</h2>
                             <p><strong style="color: #888;">КЛАСС:</strong> UNKNOWN</p>
                             <p><strong style="color: #888;">СТАТУС:</strong> <span class="status-blink" style="color: #888; animation: blink 0.5s infinite;">-129019208941897</span></p>
@@ -79,18 +78,17 @@
                         </div>
                     </div>
 
-                </div> <!-- Конец контейнера cards-grid -->
-
+                </div>
             </div>
 
-            <!-- ВКЛАДКА: ЛОГИ -->
+            <!-- ВКЛАДКА: ЛОГИ (ОКНО ДЛЯ ВВОДА КОДОВ) -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
                 <div class="password-section">
                     <p style="margin-top: 0;">ВВЕДИТЕ ДЕКОДИРОВАННЫЙ КЛЮЧ С ДИСКОРД-СЕРВЕРА:</p>
                     <input type="text" id="passInput" placeholder="Код...">
                     <button onclick="checkAccess()">ВВОД</button>
-                    <p id="errText" style="color: #ff0033; font-weight: bold; margin-top: 10px; display: none;">ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА.</p>
+                    <p id="errText" style="color: #ff0033; font-weight: bold; margin-top: 10px; display: none;"></p>
                 </div>
             </div>
 
@@ -104,37 +102,30 @@
             </div>
 
         </div>
-
     </div>
 
-    <!-- ТВОЙ БЛОКНОТ ИЗ DOORS -->
+    <!-- КРУПНЫЙ БЛОКНОТ DOORS -->
     <div id="notebookOverlay" class="notebook-overlay" onclick="closeJournal()">
         <div class="doors-notebook" onclick="event.stopPropagation()">
-            
             <button class="notebook-close" onclick="closeJournal()">✕</button>
-            
             <div class="page page-left">
                 <div class="page-number">1</div>
                 <h2 id="nbTitleLeft" class="handwritten-title">Name</h2>
-                <div id="nbContentLeft" class="handwritten-text">Текст слева...</div>
+                <div id="nbContentLeft" class="handwritten-text">Текст...</div>
             </div>
-
             <div class="notebook-spine">
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
             </div>
-
             <div class="page page-right">
                 <div class="page-number">2</div>
-                <div id="nbContentRight" class="handwritten-text">Текст справа...</div>
+                <div id="nbContentRight" class="handwritten-text">Текст...</div>
             </div>
-
         </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
