@@ -16,6 +16,11 @@
                 <div class="nav-icon">👤</div>
                 <span>Объекты</span>
             </div>
+            <!-- НОВАЯ ВКЛАДКА ЛОРЫ -->
+            <div class="nav-item" onclick="switchTab('lore', this)">
+                <div class="nav-icon">📜</div>
+                <span>Лоры</span>
+            </div>
             <div class="nav-item" onclick="switchTab('logs', this)">
                 <div class="nav-icon">👁️</div>
                 <span>Логи</span>
@@ -29,6 +34,7 @@
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
+            <!-- ВКЛАДКА 1: ОБЪЕКТЫ -->
             <div id="objects" class="tab-content active">
                 <p>База данных активных учетных записей. Обнаружен один уцелевший профиль:</p>
                 
@@ -47,6 +53,26 @@
                 </div>
             </div>
 
+            <!-- НОВОЕ СОДЕРЖИМОЕ ВКЛАДКИ 2: ЛОРЫ -->
+            <div id="lore" class="tab-content">
+                <p>Архивные текстовые данные о субъектах системы NoMorePlayersLULZ:</p>
+                
+                <div style="border-left: 3px solid #00ff33; padding-left: 15px; margin-bottom: 25px;">
+                    <h3 style="color: #00ff33; margin-top: 0; text-transform: uppercase;">[ДАННЫЕ_ER_44]</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: #d1d1d1;">
+                        Субъект ER_44 является ключевым элементом стабильности текущего сервера. Проявляет аномально высокий уровень владения клинковым оружием формата R6. По заверению очевидцев, он остаётся единственным, кто пытается противостоять заражению исходного кода. Все попытки вируса переписать его статус пока что блокируются внутренней защитой.
+                    </p>
+                </div>
+
+                <div style="border-left: 3px solid #ff0033; padding-left: 15px;">
+                    <h3 style="color: #ff0033; margin-top: 0; text-transform: uppercase;">[ПРОЦЕСС_K0_X7]</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: #d1d1d1;">
+                        Несанкционированный фоновый скрипт. Известен среди уцелевших как «ШВЫ». Проникает в игровые сессии под видом критических графических багов. Буквально выворачивает наизнанку аватары пользователей, заменяя их данные повреждёнными строками кода. На данный момент стёр информацию о 98% игроков.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ВКЛАДКА 3: ЛОГИ -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
                 
@@ -58,11 +84,12 @@
                 </div>
             </div>
 
+            <!-- ВКЛАДКА 4: ФАЙЛЫ -->
             <div id="files" class="tab-content">
                 <p>Архив системных утилит. Все внешние зеркала отключены.</p>
                 <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
                     <p style="margin: 0; color: #ff0033;">[ДАННЫЕ_ЗАБЛОКИРОВАНЫ]</p>
-                    <p style="font-size: 13px; color: #888; margin-top: 10px;">Разгадайте шифр во вкладке "Логи", чтобы恢复 соединение с облачным диском.</p>
+                    <p style="font-size: 13px; color: #888; margin-top: 10px;">Разгадайте шифр во вкладке "Логи", чтобы восстановить соединение с облачным диском.</p>
                 </div>
             </div>
 
@@ -70,7 +97,7 @@
 
     </div>
 
-    <!-- Подключаем внешние скрипты в самом низу страницы -->
+    <!-- Подключаем внешние скрипты -->
     <script src="script.js"></script>
 
 </body>
