@@ -30,10 +30,11 @@
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
+            <!-- ВКЛАДКА: ОБЪЕКТЫ -->
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- КАРТОЧКА ГЕРОЯ ER_44 -->
+                <!-- КАРТОЧКА ER_44 -->
                 <div class="character-card clickable" onclick="openJournal('er_44')">
                     <div class="avatar-box">
                         <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
@@ -86,7 +87,7 @@
 
     </div>
 
-    <!-- 📕 ТВОЙ НОВЫЙ БЛОКНОТ ИЗ DOORS (Всплывает по центру поверх всего) -->
+    <!-- 📕 ТВОЙ БЛОКНОТ ИЗ DOORS (Страницы 1 и 2) -->
     <div id="notebookOverlay" class="notebook-overlay" onclick="closeJournal()">
         <div class="doors-notebook" onclick="event.stopPropagation()">
             
@@ -94,7 +95,7 @@
             
             <!-- Левая страница -->
             <div class="page page-left">
-                <div class="page-number">5</div>
+                <div class="page-number">1</div> <!-- ТУТ ТЕПЕРЬ 1 -->
                 <h2 id="nbTitleLeft" class="handwritten-title">Name</h2>
                 <div id="nbContentLeft" class="handwritten-text">Текст слева...</div>
             </div>
@@ -109,7 +110,7 @@
 
             <!-- Правая страница -->
             <div class="page page-right">
-                <div class="page-number">6</div>
+                <div class="page-number">2</div> <!-- ТУТ ТЕПЕРЬ 2 -->
                 <div id="nbContentRight" class="handwritten-text">Текст справа...</div>
             </div>
 
