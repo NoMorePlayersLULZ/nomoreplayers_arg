@@ -97,13 +97,13 @@ body {
 }
 .avatar-box img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-/* ИСПРАВЛЕННЫЙ СЛОЙ СКАНИРОВАНИЯ */
+/* 🟢 ИСПРАВЛЕННАЯ СТРОКА СКАНИРОВАНИЯ */
 .scanline { 
     position: absolute; 
     top: 0; left: 0; width: 100%; height: 4px; 
     background: rgba(0, 255, 51, 0.5); 
-    animation: scan 2s linear infinite; 
-    z-index: 1; /* Понизили приоритет, чтобы полоска пряталась ПОД блокнот */
+    animation: scan 2s linear infinite !important; /* Добавили !important, чтобы заставить ее бегать в любом случае */
+    z-index: 5;
 }
 
 .char-info { margin-left: 25px; flex-grow: 1; }
@@ -124,7 +124,7 @@ body {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.85);
-    z-index: 1000; /* Панель перекроет сканеры */
+    z-index: 1000; /* Самый высокий слой, перекроет сканеры */
     display: flex;
     align-items: center;
     justify-content: center;
