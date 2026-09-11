@@ -29,14 +29,51 @@
             animation: glitch 5s infinite;
         }
 
+        /* ГЛАВНЫЙ КОНТЕЙНЕР (Разделяет сайт на контент и боковую панель) */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: flex-start;
+        }
+
+        /* ЛЕВАЯ ЧАСТЬ (Карточка и форма) */
+        .content-area {
+            flex: 1;
+            max-width: 540px;
+        }
+
+        /* 1. ТВОЯ БОКОВАЯ ПАНЕЛЬ С ЛОРОМ */
+        .sidebar-archive {
+            width: 320px;
+            background: #0a0a0a;
+            border: 2px dashed #00ff33;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 51, 0.1);
+        }
+        .sidebar-archive h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #00ff33;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+        .lore-block {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #d1d1d1;
+            margin-bottom: 20px;
+            border-left: 2px solid #00ff33;
+            padding-left: 10px;
+        }
+
         /* КАРТОЧКА ПЕРСОНАЖА ER_44 */
         .character-card {
             display: flex;
             background: #0a0a0a;
             border: 2px solid #00ff33;
             padding: 20px;
-            max-width: 500px;
-            margin-top: 30px;
             box-shadow: 0 0 15px rgba(0, 255, 51, 0.2);
         }
         .avatar-box {
@@ -49,8 +86,9 @@
         }
         .avatar-box img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
+            object-position: top;
         }
         .scanline {
             position: absolute;
@@ -93,14 +131,13 @@
             margin-top: 40px;
             border: 1px dashed #00ff33;
             padding: 20px;
-            max-width: 460px;
         }
         .password-section input {
             background: #000;
             color: #00ff33;
             border: 1px solid #00ff33;
             padding: 10px;
-            width: 60%;
+            width: 55%;
             font-family: monospace;
             outline: none;
         }
@@ -122,6 +159,17 @@
             0%, 14%, 49%, 50%, 99%, 100% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 255, 0, 0.75); }
             15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 255, 0, 0.75); }
         }
+
+        /* ТВОЯ АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ (Переносит панель вниз) */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column; /* Переключаем в режим "друг под другом" */
+            }
+            .sidebar-archive {
+                width: auto; /* На телефоне растягивается на всю ширину экрана */
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -130,31 +178,54 @@
     
     <p>Внимание. Обнаружен профиль игрока. Восстановление стабильности системы невозможно без внешнего ключа доступа.</p>
 
-    <!-- КАРТОЧКА ГЕРОЯ -->
-    <div class="character-card">
-        <div class="avatar-box">
-            <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
-            <div class="scanline"></div>
-        </div>
-        <div class="char-info">
-            <h2>OBJECT: ER_44</h2>
-            <p><strong>КЛАСС:</strong> MAIN</p> <!-- Убрал слово ИГРОК -->
-            <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
-            <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
-            <div class="hp-container"><div class="hp-bar"></div></div>
-        </div>
-    </div>
+    <!-- ОСНОВНОЙ КОНТЕЙНЕР С САЙДБАРОМ -->
+    <div class="main-container">
+        
+        <!-- ЛЕВАЯ СЕКЦИЯ -->
+        <div class="content-area">
+            <!-- КАРТОЧКА ГЕРОЯ -->
+            <div class="character-card">
+                <div class="avatar-box">
+                    <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
+                    <div class="scanline"></div>
+                </div>
+                <div class="char-info">
+                    <h2>OBJECT: ER_44</h2>
+                    <p><strong>КЛАСС:</strong> MAIN</p>
+                    <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
+                    <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
+                    <div class="hp-container"><div class="hp-bar"></div></div>
+                </div>
+            </div>
 
-    <p style="margin-top: 30px;">Системное сообщение от скрытого процесса: 
-        <span class="censored">ЛОГ_ПОВРЕЖДЕН_K0_X7</span>
-    </p>
+            <p style="margin-top: 30px;">Системное сообщение от скрытого процесса: 
+                <span class="censored">ЛОГ_ПОВРЕЖДЕН_K0_X7</span>
+            </p>
 
-    <!-- ФОРМА ВВОДА ПАРОЛЯ -->
-    <div class="password-section">
-        <p style="margin-top: 0;">ВВЕДИТЕ ДЕКОДИРОВАННЫЙ КЛЮЧ С ДИСКОРД-СЕРВЕРА:</p>
-        <input type="text" id="passInput" placeholder="Код...">
-        <button onclick="checkAccess()">ВВОД</button>
-        <p id="errText" style="color: #ff0033; font-weight: bold; margin-top: 10px; display: none;">ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА.</p>
+            <!-- ФОРМА ВВОДА ПАРОЛЯ -->
+            <div class="password-section">
+                <p style="margin-top: 0;">ВВЕДИТЕ ДЕКОДИРОВАННЫЙ КЛЮЧ С ДИСКОРД-СЕРВЕРА:</p>
+                <input type="text" id="passInput" placeholder="Код...">
+                <button onclick="checkAccess()">ВВОД</button>
+                <p id="errText" style="color: #ff0033; font-weight: bold; margin-top: 10px; display: none;">ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА.</p>
+            </div>
+        </div>
+
+        <!-- ТВОЯ БОКОВАЯ ПАНЕЛЬ С ЛОРОМ (Справа на ПК, Снизу на телефоне) -->
+        <div class="sidebar-archive">
+            <h3>[ДАННЫЕ_БАЗЫ_ДАННЫХ]</h3>
+            
+            <div class="lore-block">
+                <strong style="color: #00ff33;">ПРОФИЛЬ: ER_44</strong><br>
+                Опытный мечник, использующий классический стиль R6. Был замечен на серверах незадолго до того, как они начали пустеть. Пытается удержать стабильность системы.
+            </div>
+
+            <div class="lore-block">
+                <strong style="color: #ff0033;">НЕИЗВЕСТНАЯ УГРОЗА</strong><br>
+                В коде обнаружены следы процесса K0_X7. Файлы логов зашифрованы. Игроки исчезают один за другим.
+            </div>
+        </div>
+
     </div>
 
     <!-- JAVASCRIPT ПРОВЕРКИ ПАРОЛЯ -->
