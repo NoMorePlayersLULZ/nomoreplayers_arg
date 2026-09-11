@@ -82,9 +82,7 @@ body {
     transition: transform 0.2s ease;
 }
 .character-card.clickable { cursor: pointer; }
-.character-card.clickable:hover {
-    transform: scale(1.02);
-}
+.character-card.clickable:hover { transform: scale(1.02); }
 
 .avatar-box {
     position: relative;
@@ -113,35 +111,126 @@ body {
 .password-section input { background: #000; color: #00ff33; border: 1px solid #00ff33; padding: 10px; width: 60%; font-family: monospace; outline: none; }
 .password-section button { background: #00ff33; color: #000; border: none; padding: 10px 15px; font-family: monospace; cursor: pointer; font-weight: bold; }
 
-/* ПАНЕЛЬ БЛОКНОТА */
-.bottom-journal {
+/* 🎬 СТИЛИЗАЦИЯ БЛОКНОТА ИЗ DOORS */
+.notebook-overlay {
     position: fixed;
-    bottom: -400px;
-    left: 0;
-    width: 100%;
-    height: 320px;
-    background-color: #0a0a0a;
-    border-top: 3px solid #00ff33;
-    z-index: 200;
-    transition: bottom 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
-    box-shadow: 0 -5px 25px rgba(0, 255, 51, 0.2);
-    box-sizing: border-box;
-}
-.bottom-journal.open {
-    bottom: 0;
-}
-.journal-header {
-    background: #000;
-    padding: 12px 20px;
-    border-bottom: 1px solid #00ff33;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Затемнение фона вокруг блокнота */
+    z-index: 1000;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.notebook-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.doors-notebook {
+    display: flex;
+    width: 760px;
+    height: 480px;
+    position: relative;
+    transform: scale(0.7) rotate(-3deg); /* При появлении он слегка наклонён */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.notebook-overlay.open .doors-notebook {
+    transform: scale(1) rotate(-1deg); /* Плавный вылет со стабилизацией */
+}
+
+/* Страницы дневника */
+.page {
+    flex: 1;
+    background-color: #edd9bc; /* Пожелтевшая крафтовая бумага */
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    overflow-y: auto;
+}
+.page-left {
+    border-radius: 12px 0 0 12px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.page-right {
+    border-radius: 0 12px 12px 0;
+    border-left: 1px solid rgba(0,0,0,0.1);
+}
+.page-number {
+    position: absolute;
+    top: 15px;
+    font-size: 14px;
+    color: #8c765c;
     font-weight: bold;
 }
-.journal-body { padding: 20px; overflow-y: auto; height: 230px; box-sizing: border-box; }
-.close-btn { background: transparent; color: #ff0033; border: 1px solid #ff0033; cursor: pointer; font-weight: bold; font-family: monospace; padding: 2px 8px; }
-.close-btn:hover { background: #ff0033; color: #000; }
+.page-left .page-number { left: 20px; }
+.page-right .page-number { right: 20px; }
+
+/* Пружина (Разделитель посередине) */
+.notebook-spine {
+    width: 24px;
+    background: #1c1510;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 10;
+}
+.ring {
+    width: 32px;
+    height: 10px;
+    background: linear-gradient(90deg, #423830, #fff, #423830); /* Эффект металлических колец */
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+
+/* Рукописные шрифты */
+.handwritten-title {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Имитация размашистого почерка */
+    font-size: 32px;
+    color: #1a1512;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.handwritten-text {
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2b211a;
+}
+.handwritten-text p { margin-top: 0; margin-bottom: 12px; }
+
+/* Кнопка закрытия блокнота */
+.notebook-close {
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 40px; height: 40px;
+    background: #ff0033;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.notebook-close:hover { background: #b30024; }
+
+/* Стилизация внутренних мини-картинок лора */
+.nb-sketch {
+    width: 130px;
+    height: 130px;
+    border: 2px solid #2b211a;
+    background: #000;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+}
 
 @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
@@ -151,6 +240,7 @@ body {
     15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75); }
 }
 
+/* Мобильная адаптация для разворота книги */
 @media (max-width: 768px) {
     .app-wrapper { flex-direction: column-reverse; }
     .nav-sidebar {
@@ -160,6 +250,18 @@ body {
     .nav-item { height: 100%; width: 33%; font-size: 10px; }
     .nav-icon { font-size: 20px; margin-bottom: 4px; }
     .main-content { padding: 20px; padding-bottom: 100px; }
-    .bottom-journal { bottom: -450px; height: 380px; padding-bottom: 70px; }
-    .bottom-journal.open { bottom: 70px; }
+    
+    /* Блокнот на мобилках сжимается, чтобы влезть в экран */
+    .doors-notebook {
+        width: 95%;
+        height: 85vh;
+        flex-direction: column; /* Страницы ложатся друг под друга */
+    }
+    .page-left { border-radius: 12px 12px 0 0; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .page-right { border-radius: 0 0 12px 12px; border-left: none; border-top: 1px solid rgba(0,0,0,0.1); }
+    .notebook-spine {
+        width: 100%; height: 16px; flex-direction: row; padding: 0 10px;
+    }
+    .ring { width: 10px; height: 24px; background: linear-gradient(180deg, #423830, #fff, #423830); }
+    .notebook-close { top: 10px; right: 10px; }
 }
