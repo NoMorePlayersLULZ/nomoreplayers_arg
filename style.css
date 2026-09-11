@@ -97,15 +97,6 @@ body {
 }
 .avatar-box img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-/* КАТАЮЩАЯСЯ ПОЛОСА СКАНИРОВАНИЯ */
-.scanline { 
-    position: absolute; 
-    top: 0; left: 0; width: 100%; height: 4px; 
-    background: rgba(0, 255, 51, 0.5); 
-    animation: scan 2s linear infinite; /* Запускаем анимацию */
-    z-index: 5;
-}
-
 .char-info { margin-left: 25px; flex-grow: 1; }
 .char-info h2 { margin-top: 0; color: #00ff33; font-size: 22px; }
 .status-blink { color: #00ff33; font-weight: bold; animation: blink 1s ease-in-out infinite; }
@@ -183,11 +174,7 @@ body {
 .scary-word:nth-child(even) { animation-delay: 0.5s; animation-duration: 2.5s; }
 .scary-word:nth-child(3n) { animation-delay: 1s; animation-duration: 3.5s; }
 
-/* ИНСТРУКЦИИ ДЛЯ ВСЕХ АНИМАЦИЙ (Вот они!) */
-@keyframes scan { 
-    0% { top: 0; } 
-    100% { top: 100%; } 
-}
+/* АНИМАЦИИ (scan убрали) */
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 @keyframes flicker { 0%, 100% { opacity: 0.99; } 50% { opacity: 1; } }
 @keyframes floatWord {
