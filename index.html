@@ -34,11 +34,10 @@
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- КАРТОЧКА ER_44 -->
+                <!-- КАРТОЧКА ГЕРОЯ ER_44 -->
                 <div class="character-card clickable" onclick="openJournal('er_44')">
                     <div class="avatar-box">
                         <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
-                        <div class="scanline"></div>
                     </div>
                     <div class="char-info">
                         <h2>OBJECT: ER_44</h2>
@@ -53,7 +52,6 @@
                 <div class="character-card clickable" onclick="openJournal('k0_x7')" style="margin-top: 25px; border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
                     <div class="avatar-box" style="border-color: #ff0033;">
                         <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
-                        <div class="scanline" style="background: rgba(255, 0, 51, 0.5);"></div>
                     </div>
                     <div class="char-info">
                         <h2 style="color: #ff0033;">OBJECT: K0_X7</h2>
@@ -63,8 +61,25 @@
                         <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
                     </div>
                 </div>
+
+                <!-- СЕКРЕТНАЯ КАРТОЧКА ??? -->
+                <div class="character-card clickable" onclick="openJournal('unknown')" style="margin-top: 25px; border-color: #555; box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);">
+                    <div class="avatar-box" style="border-color: #555; background: #111;">
+                        <!-- Заглушка вместо картинки, пока ты не собрал скин в роблоксе -->
+                        <div style="font-size: 48px; color: #555; display: flex; align-items: center; justify-content: center; height: 100%;">?</div>
+                    </div>
+                    <div class="char-info">
+                        <h2 style="color: #888;">OBJECT: ???</h2>
+                        <p><strong style="color: #888;">КЛАСС:</strong> UNKNOWN</p>
+                        <p><strong style="color: #888;">СТАТУС:</strong> <span class="status-blink" style="color: #888; animation: blink 0.5s infinite;">-129019208941897</span></p>
+                        <div class="hp-bar-text" style="color: #888;">ЦЕЛОСТНОСТЬ ФАЙЛОВ: NULL%</div>
+                        <div class="hp-container" style="border-color: #555;"><div class="hp-bar" style="width: 0%; background: #555;"></div></div>
+                    </div>
+                </div>
+
             </div>
 
+            <!-- ВКЛАДКА: ЛОГИ -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
                 <div class="password-section">
@@ -75,6 +90,7 @@
                 </div>
             </div>
 
+            <!-- ВКЛАДКА: ФАЙЛЫ -->
             <div id="files" class="tab-content">
                 <p>Архив системных утилит. Все внешние зеркала отключены.</p>
                 <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
@@ -87,20 +103,18 @@
 
     </div>
 
-    <!-- 📕 ТВОЙ БЛОКНОТ ИЗ DOORS (Страницы 1 и 2) -->
+    <!-- ТВОЙ БЛОКНОТ ИЗ DOORS -->
     <div id="notebookOverlay" class="notebook-overlay" onclick="closeJournal()">
         <div class="doors-notebook" onclick="event.stopPropagation()">
             
             <button class="notebook-close" onclick="closeJournal()">✕</button>
             
-            <!-- Левая страница -->
             <div class="page page-left">
-                <div class="page-number">1</div> <!-- ТУТ ТЕПЕРЬ 1 -->
+                <div class="page-number">1</div>
                 <h2 id="nbTitleLeft" class="handwritten-title">Name</h2>
                 <div id="nbContentLeft" class="handwritten-text">Текст слева...</div>
             </div>
 
-            <!-- Пружина посередине -->
             <div class="notebook-spine">
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
@@ -108,9 +122,8 @@
                 <div class="ring"></div><div class="ring"></div><div class="ring"></div>
             </div>
 
-            <!-- Правая страница -->
             <div class="page page-right">
-                <div class="page-number">2</div> <!-- ТУТ ТЕПЕРЬ 2 -->
+                <div class="page-number">2</div>
                 <div id="nbContentRight" class="handwritten-text">Текст справа...</div>
             </div>
 
