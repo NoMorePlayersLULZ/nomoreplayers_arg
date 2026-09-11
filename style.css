@@ -111,7 +111,7 @@ body {
 .password-section input { background: #000; color: #00ff33; border: 1px solid #00ff33; padding: 10px; width: 60%; font-family: monospace; outline: none; }
 .password-section button { background: #00ff33; color: #000; border: none; padding: 10px 15px; font-family: monospace; cursor: pointer; font-weight: bold; }
 
-/* СТИЛИЗАЦИЯ БЛОКНОТА */
+/* КРУПНЫЙ БЛОКНОТ НА ВЕСЬ ЭКРАН */
 .notebook-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -126,10 +126,11 @@ body {
 }
 .notebook-overlay.open { opacity: 1; pointer-events: auto; }
 
+/* УВЕЛИЧИЛИ РАЗМЕРЫ ТУТ */
 .doors-notebook {
     display: flex;
-    width: 760px;
-    height: 480px;
+    width: 960px; /* Было 760px */
+    height: 600px; /* Было 480px */
     position: relative;
     transform: scale(0.7) rotate(-3deg);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -139,42 +140,39 @@ body {
 .page {
     flex: 1;
     background-color: #edd9bc;
-    padding: 30px;
+    padding: 40px; /* Больше отступов для крупного экрана */
     box-sizing: border-box;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
     overflow-y: auto;
 }
-.page-left { border-radius: 12px 0 0 12px; border-right: 1px solid rgba(0,0,0,0.1); }
-.page-right { border-radius: 0 12px 12px 0; border-left: 1px solid rgba(0,0,0,0.1); }
-.page-number { position: absolute; top: 15px; font-size: 14px; color: #8c765c; font-weight: bold; }
-.page-left .page-number { left: 20px; }
-.page-right .page-number { right: 20px; }
+.page-left { border-radius: 14px 0 0 14px; border-right: 1px solid rgba(0,0,0,0.1); }
+.page-right { border-radius: 0 14px 14px 0; border-left: 1px solid rgba(0,0,0,0.1); }
+.page-number { position: absolute; top: 15px; font-size: 15px; color: #8c765c; font-weight: bold; }
+.page-left .page-number { left: 25px; }
+.page-right .page-number { right: 25px; }
 
 .notebook-spine {
-    width: 24px; background: #1c1510; display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding: 10px 0; z-index: 10;
+    width: 28px; background: #1c1510; display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding: 15px 0; z-index: 10;
 }
-.ring { width: 32px; height: 10px; background: linear-gradient(90deg, #423830, #fff, #423830); border-radius: 5px; box-shadow: 0 3px 5px rgba(0,0,0,0.3); }
+.ring { width: 38px; height: 12px; background: linear-gradient(90deg, #423830, #fff, #423830); border-radius: 5px; box-shadow: 0 3px 5px rgba(0,0,0,0.3); }
 
-.handwritten-title { font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 32px; color: #1a1512; margin-top: 10px; margin-bottom: 15px; }
-.handwritten-text { font-family: 'Georgia', serif; font-size: 15px; line-height: 1.6; color: #2b211a; }
-.handwritten-text p { margin-top: 0; margin-bottom: 12px; }
-.notebook-close { position: absolute; top: -20px; right: -20px; width: 40px; height: 40px; background: #ff0033; color: #fff; border: 2px solid #fff; border-radius: 50%; font-size: 18px; font-weight: bold; cursor: pointer; z-index: 1100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+.handwritten-title { font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 36px; color: #1a1512; margin-top: 10px; margin-bottom: 20px; }
+.handwritten-text { font-family: 'Georgia', serif; font-size: 17px; line-height: 1.6; color: #2b211a; }
+.handwritten-text p { margin-top: 0; margin-bottom: 14px; }
+.notebook-close { position: absolute; top: -20px; right: -20px; width: 45px; height: 45px; background: #ff0033; color: #fff; border: 2px solid #fff; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; z-index: 1100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 .notebook-close:hover { background: #b30024; }
-.nb-sketch { width: 130px; height: 130px; border: 2px solid #2b211a; background: #000; margin: 15px auto; display: block; box-shadow: 2px 4px 10px rgba(0,0,0,0.2); }
+.nb-sketch { width: 160px; height: 160px; border: 2px solid #2b211a; background: #000; margin: 20px auto; display: block; box-shadow: 2px 4px 10px rgba(0,0,0,0.2); }
 
-/* 👻 СТИЛИ ДЛЯ ЖИВОГО КРАСНОГО ТЕКСТА К0_Х7 */
+/* ПУГЛИВЫЕ СЛОВА */
 .scary-word {
     display: inline-block;
     color: #b81414;
     font-weight: bold;
-    transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1); /* Плавный отскок и возврат на место */
+    transition: transform 0.15s cubic-bezier(0.1, 0.8, 0.3, 1);
     cursor: default;
-    /* Медленное спокойное покачивание по умолчанию */
     animation: floatWord 3s ease-in-out infinite alternate;
 }
-
-/* Разные задержки анимации, чтобы слова качались несинхронно */
 .scary-word:nth-child(even) { animation-delay: 0.5s; animation-duration: 2.5s; }
 .scary-word:nth-child(3n) { animation-delay: 1s; animation-duration: 3.5s; }
 
