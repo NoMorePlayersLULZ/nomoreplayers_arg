@@ -34,48 +34,52 @@
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- КАРТОЧКА ГЕРОЯ ER_44 -->
-                <div class="character-card clickable" onclick="openJournal('er_44')">
-                    <div class="avatar-box">
-                        <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
+                <!-- НОВЫЙ КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ В РЯД -->
+                <div class="cards-grid">
+                
+                    <!-- КАРТОЧКА ER_44 -->
+                    <div class="character-card clickable" onclick="openJournal('er_44')">
+                        <div class="avatar-box">
+                            <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
+                        </div>
+                        <div class="char-info">
+                            <h2>OBJECT: ER_44</h2>
+                            <p><strong>КЛАСС:</strong> MAIN</p>
+                            <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
+                            <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
+                            <div class="hp-container"><div class="hp-bar"></div></div>
+                        </div>
                     </div>
-                    <div class="char-info">
-                        <h2>OBJECT: ER_44</h2>
-                        <p><strong>КЛАСС:</strong> MAIN</p>
-                        <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
-                        <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
-                        <div class="hp-container"><div class="hp-bar"></div></div>
-                    </div>
-                </div>
 
-                <!-- КАРТОЧКА БОССА K0_X7 -->
-                <div class="character-card clickable" onclick="openJournal('k0_x7')" style="margin-top: 25px; border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
-                    <div class="avatar-box" style="border-color: #ff0033;">
-                        <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
+                    <!-- КАРТОЧКА БОССА K0_X7 -->
+                    <div class="character-card clickable" onclick="openJournal('k0_x7')" style="border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
+                        <div class="avatar-box" style="border-color: #ff0033;">
+                            <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
+                        </div>
+                        <div class="char-info">
+                            <h2 style="color: #ff0033;">OBJECT: K0_X7</h2>
+                            <p><strong style="color: #ff0033;">КЛАСС:</strong> VIRUS</p>
+                            <p><strong style="color: #ff0033;">СТАТУС:</strong> <span class="status-blink" style="color: #ff0033;">ACTIVE</span></p>
+                            <div class="hp-bar-text" style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
+                            <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
+                        </div>
                     </div>
-                    <div class="char-info">
-                        <h2 style="color: #ff0033;">OBJECT: K0_X7</h2>
-                        <p><strong style="color: #ff0033;">КЛАСС:</strong> VIRUS</p>
-                        <p><strong style="color: #ff0033;">СТАТУС:</strong> <span class="status-blink" style="color: #ff0033;">ACTIVE</span></p>
-                        <div class="hp-bar-text" style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
-                        <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
-                    </div>
-                </div>
 
-                <!-- СЕКРЕТНАЯ КАРТОЧКА ??? -->
-                <div class="character-card clickable" onclick="openJournal('unknown')" style="margin-top: 25px; border-color: #555; box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);">
-                    <div class="avatar-box" style="border-color: #555; background: #111;">
-                        <!-- Заглушка вместо картинки, пока ты не собрал скин в роблоксе -->
-                        <div style="font-size: 48px; color: #555; display: flex; align-items: center; justify-content: center; height: 100%;">?</div>
+                    <!-- СЕКРЕТНАЯ КАРТОЧКА ??? -->
+                    <div class="character-card clickable" onclick="openJournal('unknown')" style="border-color: #555; box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);">
+                        <div class="avatar-box" style="border-color: #555; background: #111;">
+                            <div style="font-size: 48px; color: #555; display: flex; align-items: center; justify-content: center; height: 100%;">?</div>
+                        </div>
+                        <div class="char-info">
+                            <h2 style="color: #888;">OBJECT: ???</h2>
+                            <p><strong style="color: #888;">КЛАСС:</strong> UNKNOWN</p>
+                            <p><strong style="color: #888;">СТАТУС:</strong> <span class="status-blink" style="color: #888; animation: blink 0.5s infinite;">-129019208941897</span></p>
+                            <div class="hp-bar-text" style="color: #888;">ЦЕЛОСТНОСТЬ ФАЙЛОВ: NULL%</div>
+                            <div class="hp-container" style="border-color: #555;"><div class="hp-bar" style="width: 0%; background: #555;"></div></div>
+                        </div>
                     </div>
-                    <div class="char-info">
-                        <h2 style="color: #888;">OBJECT: ???</h2>
-                        <p><strong style="color: #888;">КЛАСС:</strong> UNKNOWN</p>
-                        <p><strong style="color: #888;">СТАТУС:</strong> <span class="status-blink" style="color: #888; animation: blink 0.5s infinite;">-129019208941897</span></p>
-                        <div class="hp-bar-text" style="color: #888;">ЦЕЛОСТНОСТЬ ФАЙЛОВ: NULL%</div>
-                        <div class="hp-container" style="border-color: #555;"><div class="hp-bar" style="width: 0%; background: #555;"></div></div>
-                    </div>
-                </div>
+
+                </div> <!-- Конец контейнера cards-grid -->
 
             </div>
 
