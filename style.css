@@ -97,12 +97,12 @@ body {
 }
 .avatar-box img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-/* 🟢 ИСПРАВЛЕННАЯ СТРОКА СКАНИРОВАНИЯ */
+/* КАТАЮЩАЯСЯ ПОЛОСА СКАНИРОВАНИЯ */
 .scanline { 
     position: absolute; 
     top: 0; left: 0; width: 100%; height: 4px; 
     background: rgba(0, 255, 51, 0.5); 
-    animation: scan 2s linear infinite !important; /* Добавили !important, чтобы заставить ее бегать в любом случае */
+    animation: scan 2s linear infinite; /* Запускаем анимацию */
     z-index: 5;
 }
 
@@ -124,7 +124,7 @@ body {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.85);
-    z-index: 1000; /* Самый высокий слой, перекроет сканеры */
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,9 +183,20 @@ body {
 .scary-word:nth-child(even) { animation-delay: 0.5s; animation-duration: 2.5s; }
 .scary-word:nth-child(3n) { animation-delay: 1s; animation-duration: 3.5s; }
 
+/* ИНСТРУКЦИИ ДЛЯ ВСЕХ АНИМАЦИЙ (Вот они!) */
+@keyframes scan { 
+    0% { top: 0; } 
+    100% { top: 100%; } 
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes flicker { 0%, 100% { opacity: 0.99; } 50% { opacity: 1; } }
 @keyframes floatWord {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(-3px) rotate(1deg); }
+}
+@keyframes glitch {
+    0%, 14%, 49%, 50%, 99%, 100% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75); }
+    15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75); }
 }
 
 @media (max-width: 768px) {
