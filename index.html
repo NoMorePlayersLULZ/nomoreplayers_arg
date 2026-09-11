@@ -3,69 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoMorePlayersLULZ // RECOVERY.sys</title>
+    <title>NoMorePlayersLULZ // ARCHIVE</title>
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ */
+        /* БАЗОВЫЕ НАСТРОЙКИ */
         body {
             background-color: #050505;
             color: #00ff33;
             font-family: 'Courier New', Courier, monospace;
-            padding: 40px;
             margin: 0;
-            overflow-x: hidden;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
             animation: flicker 0.15s infinite;
         }
 
-        /* ЭФФЕКТ ЛОМАЮЩЕГОСЯ ТЕКСТА (GLITCH) */
+        /* АДПТИВНЫЙ КОНТЕЙНЕР ДЛЯ СМАРТФОНОВ И ПК */
+        .app-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+        }
+
+        /* ТВОЯ БОКОВАЯ ПАНЕЛЬ НАВИГАЦИИ (ПК-версия) */
+        .nav-sidebar {
+            width: 110px;
+            background-color: #0a0a0a;
+            border-right: 2px solid #00ff33;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 30px;
+            gap: 25px;
+            box-shadow: 5px 0 15px rgba(0, 255, 51, 0.05);
+            z-index: 100;
+        }
+
+        /* Кнопки меню */
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 80px;
+            color: #00ff33;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .nav-item:hover {
+            background: rgba(0, 255, 51, 0.1);
+        }
+        /* Активная вкладка */
+        .nav-item.active {
+            border: 1px solid #00ff33;
+            background: rgba(0, 255, 51, 0.15);
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ff33;
+        }
+        /* Иконки в текстовом виде */
+        .nav-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        /* ОСНОВНАЯ ЗОНА С КОНТЕНТОМ */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        /* ЭФФЕКТ GLITCH ДЛЯ ЗАГОЛОВКА */
         .glitch {
             font-size: 28px;
             font-weight: bold;
             text-transform: uppercase;
-            position: relative;
             border-bottom: 2px solid #00ff33;
             padding-bottom: 10px;
             letter-spacing: 2px;
-            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            margin-top: 0;
+            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75);
             animation: glitch 5s infinite;
         }
 
-        /* ГЛАВНЫЙ КОНТЕЙНЕР (Разделяет сайт на контент и боковую панель) */
-        .main-container {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
+        /* ВКЛАДКИ (По умолчанию скрыты) */
+        .tab-content {
+            display: none;
             margin-top: 30px;
-            align-items: flex-start;
         }
-
-        /* ЛЕВАЯ ЧАСТЬ (Карточка и форма) */
-        .content-area {
-            flex: 1;
-            max-width: 540px;
-        }
-
-        /* 1. ТВОЯ БОКОВАЯ ПАНЕЛЬ С ЛОРОМ */
-        .sidebar-archive {
-            width: 320px;
-            background: #0a0a0a;
-            border: 2px dashed #00ff33;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 255, 51, 0.1);
-        }
-        .sidebar-archive h3 {
-            margin-top: 0;
-            border-bottom: 1px solid #00ff33;
-            padding-bottom: 8px;
-            text-transform: uppercase;
-            font-size: 18px;
-        }
-        .lore-block {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #d1d1d1;
-            margin-bottom: 20px;
-            border-left: 2px solid #00ff33;
-            padding-left: 10px;
+        .tab-content.active {
+            display: block;
         }
 
         /* КАРТОЧКА ПЕРСОНАЖА ER_44 */
@@ -74,6 +108,7 @@
             background: #0a0a0a;
             border: 2px solid #00ff33;
             padding: 20px;
+            max-width: 500px;
             box-shadow: 0 0 15px rgba(0, 255, 51, 0.2);
         }
         .avatar-box {
@@ -84,11 +119,11 @@
             background: #000;
             overflow: hidden;
         }
-        .avatar-box img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            object-position: top;
+        .avatar-box img { 
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
+            object-position: top; 
         }
         .scanline {
             position: absolute;
@@ -96,158 +131,136 @@
             background: rgba(0, 255, 51, 0.5);
             animation: scan 2s linear infinite;
         }
-        .char-info {
-            margin-left: 25px;
-            flex-grow: 1;
-        }
-        .char-info h2 {
-            margin-top: 0;
-            color: #00ff33;
-            font-size: 22px;
-        }
-        .status-blink {
-            color: #00ff33;
-            font-weight: bold;
-            animation: blink 1s ease-in-out infinite;
-        }
+        .char-info { margin-left: 25px; flex-grow: 1; }
+        .char-info h2 { margin-top: 0; color: #00ff33; font-size: 22px; }
+        .status-blink { color: #00ff33; font-weight: bold; animation: blink 1s ease-in-out infinite; }
         .hp-bar-text { font-size: 12px; margin-top: 15px; }
         .hp-container { width: 100%; height: 12px; border: 1px solid #00ff33; background: #000; margin-top: 5px; }
         .hp-bar { width: 100%; height: 100%; background: #00ff33; }
 
         /* ПЛАШКА ЦЕНЗУРЫ */
-        .censored {
-            background-color: #00ff33;
-            color: #00ff33;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .censored:hover {
-            background-color: transparent;
-            color: #ff0033;
-        }
+        .censored { background-color: #00ff33; color: #00ff33; transition: all 0.3s ease; cursor: pointer; }
+        .censored:hover { background-color: transparent; color: #ff0033; }
 
         /* ФОРМА ВВОДА ПАРОЛЯ */
-        .password-section {
-            margin-top: 40px;
-            border: 1px dashed #00ff33;
-            padding: 20px;
-        }
-        .password-section input {
-            background: #000;
-            color: #00ff33;
-            border: 1px solid #00ff33;
-            padding: 10px;
-            width: 55%;
-            font-family: monospace;
-            outline: none;
-        }
-        .password-section button {
-            background: #00ff33;
-            color: #000;
-            border: none;
-            padding: 10px 15px;
-            font-family: monospace;
-            cursor: pointer;
-            font-weight: bold;
-        }
+        .password-section { border: 1px dashed #00ff33; padding: 20px; max-width: 460px; background: #0a0a0a; }
+        .password-section input { background: #000; color: #00ff33; border: 1px solid #00ff33; padding: 10px; width: 60%; font-family: monospace; outline: none; }
+        .password-section button { background: #00ff33; color: #000; border: none; padding: 10px 15px; font-family: monospace; cursor: pointer; font-weight: bold; }
 
         /* АНИМАЦИИ */
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @keyframes flicker { 0% { opacity: 0.99; } 50% { opacity: 1; } 100% { opacity: 0.99; } }
+        @keyframes flicker { 0%, 100% { opacity: 0.99; } 50% { opacity: 1; } }
         @keyframes glitch {
-            0%, 14%, 49%, 50%, 99%, 100% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 255, 0, 0.75); }
-            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 255, 0, 0.75); }
+            0%, 14%, 49%, 50%, 99%, 100% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75); }
         }
 
-        /* ТВОЯ АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ (Переносит панель вниз) */
+        /* НАСТРОЙКА ДЛЯ МОБИЛОК (Меню падает вниз) */
         @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column; /* Переключаем в режим "друг под другом" */
+            .app-wrapper {
+                flex-direction: column-reverse;
             }
-            .sidebar-archive {
-                width: auto; /* На телефоне растягивается на всю ширину экрана */
-                margin-top: 20px;
+            .nav-sidebar {
+                width: 100%;
+                height: 70px;
+                flex-direction: row;
+                justify-content: space-around;
+                padding-top: 0;
+                border-right: none;
+                border-top: 2px solid #00ff33;
+                position: fixed;
+                bottom: 0;
+                left: 0;
             }
+            .nav-item {
+                height: 100%;
+                width: 33%;
+                font-size: 10px;
+            }
+            .nav-icon { font-size: 20px; margin-bottom: 4px; }
+            .main-content { padding: 20px; padding-bottom: 100px; }
         }
     </style>
 </head>
 <body>
 
-    <h1 class="glitch">NoMorePlayersLULZ // ERROR_404</h1>
-    
-    <p>Внимание. Обнаружен профиль игрока. Восстановление стабильности системы невозможно без внешнего ключа доступа.</p>
+    <div class="app-wrapper">
 
-    <!-- ОСНОВНОЙ КОНТЕЙНЕР С САЙДБАРОМ -->
-    <div class="main-container">
-        
-        <!-- ЛЕВАЯ СЕКЦИЯ -->
-        <div class="content-area">
-            <!-- КАРТОЧКА ГЕРОЯ -->
-            <div class="character-card">
-                <div class="avatar-box">
-                    <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
-                    <div class="scanline"></div>
-                </div>
-                <div class="char-info">
-                    <h2>OBJECT: ER_44</h2>
-                    <p><strong>КЛАСС:</strong> MAIN</p>
-                    <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
-                    <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
-                    <div class="hp-container"><div class="hp-bar"></div></div>
-                </div>
+        <!-- ПАНЕЛЬ НАВИГАЦИИ -->
+        <div class="nav-sidebar">
+            <div class="nav-item active" onclick="switchTab('objects', this)">
+                <div class="nav-icon">👤</div>
+                <span>Объекты</span>
             </div>
-
-            <p style="margin-top: 30px;">Системное сообщение от скрытого процесса: 
-                <span class="censored">ЛОГ_ПОВРЕЖДЕН_K0_X7</span>
-            </p>
-
-            <!-- ФОРМА ВВОДА ПАРОЛЯ -->
-            <div class="password-section">
-                <p style="margin-top: 0;">ВВЕДИТЕ ДЕКОДИРОВАННЫЙ КЛЮЧ С ДИСКОРД-СЕРВЕРА:</p>
-                <input type="text" id="passInput" placeholder="Код...">
-                <button onclick="checkAccess()">ВВОД</button>
-                <p id="errText" style="color: #ff0033; font-weight: bold; margin-top: 10px; display: none;">ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА.</p>
+            <div class="nav-item" onclick="switchTab('logs', this)">
+                <div class="nav-icon">👁️</div>
+                <span>Логи</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('files', this)">
+                <div class="nav-icon">💾</div>
+                <span>Файлы</span>
             </div>
         </div>
 
-        <!-- ТВОЯ БОКОВАЯ ПАНЕЛЬ С ЛОРОМ (Справа на ПК, Снизу на телефоне) -->
-        <div class="sidebar-archive">
-            <h3>[ДАННЫЕ_БАЗЫ_ДАННЫХ]</h3>
-            
-            <div class="lore-block">
-                <strong style="color: #00ff33;">ПРОФИЛЬ: ER_44</strong><br>
-                Опытный мечник, использующий классический стиль R6. Был замечен на серверах незадолго до того, как они начали пустеть. Пытается удержать стабильность системы.
+        <!-- ОСНОВНАЯ ЗОНА С КОНТЕНТОМ -->
+        <div class="main-content">
+            <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
+
+            <!-- ВКЛАДКА 1: ОБЪЕКТЫ -->
+            <div id="objects" class="tab-content active">
+                <p>База данных активных учетных записей. Обнаружен один уцелевший профиль:</p>
+                
+                <div class="character-card">
+                    <div class="avatar-box">
+                        <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
+                        <div class="scanline"></div>
+                    </div>
+                    <div class="char-info">
+                        <h2>OBJECT: ER_44</h2>
+                        <p><strong>КЛАСС:</strong> MAIN</p>
+                        <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
+                        <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
+                        <div class="hp-container"><div class="hp-bar"></div></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="lore-block">
-                <strong style="color: #ff0033;">НЕИЗВЕСТНАЯ УГРОЗА</strong><br>
-                В коде обнаружены следы процесса K0_X7. Файлы логов зашифрованы. Игроки исчезают один за другим.
+            <!-- ВКЛАДКА 2: ЛОГИ -->
+            <div id="logs" class="tab-content">
+                <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
+                
+                <div class="password-section">
+                    <p style="margin-top: 0;">ВВЕДИТЕ ДЕКОДИРОВАННЫЙ КЛЮЧ С ДИСКОРД-СЕРВЕРА:</p>
+                    <input type="text" id="passInput" placeholder="Код...">
+                    <button onclick="checkAccess()">ВВОД</button>
+                    <p id="errText" style="color: #ff0033; font-weight: bold; margin-top: 10px; display: none;">ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА.</p>
+                </div>
             </div>
+
+            <!-- ВКЛАДКА 3: ФАЙЛЫ -->
+            <div id="files" class="tab-content">
+                <p>Архив системных утилит. Все внешние зеркала отключены.</p>
+                <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
+                    <p style="margin: 0; color: #ff0033;">[ДАННЫЕ_ЗАБЛОКИРОВАНЫ]</p>
+                    <p style="font-size: 13px; color: #888; margin-top: 10px;">Разгадайте шифр во вкладке "Логи", чтобы восстановить соединение с облачным диском.</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
-    <!-- JAVASCRIPT ПРОВЕРКИ ПАРОЛЯ -->
+    <!-- JAVASCRIPT -->
     <script>
-    function checkAccess() {
-        var input = document.getElementById("passInput").value.toLowerCase().trim();
-        var error = document.getElementById("errText");
-
-        if (input === "er_44") {
-            error.style.display = "none";
-            alert("КЛЮЧ ПРИНЯТ. ДОСТУП К ЗЕРКАЛУ ДИСКА ОТКРЫТ.");
-            window.location.href = "https://yandex.ru"; 
-        } else {
-            error.style.display = "block";
-            document.body.style.backgroundColor = "#220000";
-            setTimeout(function() { document.body.style.backgroundColor = "#050505"; }, 200);
+    function switchTab(tabId, element) {
+        var tabs = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
         }
-    }
-    </script>
-
-    <!-- ПАСХАЛКА В КОДЕ СТРАНИЦЫ (F12) -->
-    <!-- ПОДСКАЗКА: ЛДОВ ЕРОЬЫИ ПИХ ИУХЬ ХДЕ (Сдвиг Цезаря = 3) -->
-
-</body>
-</html>
+        var navItems = document.getElementsByClassName("nav-item");
+        for (var i = 0; i < navItems.length; i++) {
+            navItems[i].classList.remove("active");
+        }
+        document.getElementById(tabId).classList.add("active");
+element.classList.add("active");}function checkAccess() {var input = document.getElementById("passInput").value.toLowerCase().trim();var error = document.getElementById("errText");if (input === "er_44") {error.style.display = "none";alert("КЛЮЧ ПРИНЯТ. ДОСТУП К ЗЕРКАЛУ ДИСКА ОТКРЫТ.");window.location.href = "yandex.ru";} else {error.style.display = "block";document.body.style.backgroundColor = "#220000";setTimeout(function() { document.body.style.backgroundColor = "#050505"; }, 200);}}
