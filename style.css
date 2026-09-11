@@ -111,11 +111,11 @@ body {
 .password-section input { background: #000; color: #00ff33; border: 1px solid #00ff33; padding: 10px; width: 60%; font-family: monospace; outline: none; }
 .password-section button { background: #00ff33; color: #000; border: none; padding: 10px 15px; font-family: monospace; cursor: pointer; font-weight: bold; }
 
-/* 🎬 СТИЛИЗАЦИЯ БЛОКНОТА ИЗ DOORS */
+/* СТИЛИЗАЦИЯ БЛОКНОТА */
 .notebook-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Затемнение фона вокруг блокнота */
+    background: rgba(0, 0, 0, 0.85);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -124,144 +124,75 @@ body {
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
-.notebook-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-}
+.notebook-overlay.open { opacity: 1; pointer-events: auto; }
 
 .doors-notebook {
     display: flex;
     width: 760px;
     height: 480px;
     position: relative;
-    transform: scale(0.7) rotate(-3deg); /* При появлении он слегка наклонён */
+    transform: scale(0.7) rotate(-3deg);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.notebook-overlay.open .doors-notebook {
-    transform: scale(1) rotate(-1deg); /* Плавный вылет со стабилизацией */
-}
+.notebook-overlay.open .doors-notebook { transform: scale(1) rotate(-1deg); }
 
-/* Страницы дневника */
 .page {
     flex: 1;
-    background-color: #edd9bc; /* Пожелтевшая крафтовая бумага */
+    background-color: #edd9bc;
     padding: 30px;
     box-sizing: border-box;
     position: relative;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     overflow-y: auto;
 }
-.page-left {
-    border-radius: 12px 0 0 12px;
-    border-right: 1px solid rgba(0,0,0,0.1);
-}
-.page-right {
-    border-radius: 0 12px 12px 0;
-    border-left: 1px solid rgba(0,0,0,0.1);
-}
-.page-number {
-    position: absolute;
-    top: 15px;
-    font-size: 14px;
-    color: #8c765c;
-    font-weight: bold;
-}
+.page-left { border-radius: 12px 0 0 12px; border-right: 1px solid rgba(0,0,0,0.1); }
+.page-right { border-radius: 0 12px 12px 0; border-left: 1px solid rgba(0,0,0,0.1); }
+.page-number { position: absolute; top: 15px; font-size: 14px; color: #8c765c; font-weight: bold; }
 .page-left .page-number { left: 20px; }
 .page-right .page-number { right: 20px; }
 
-/* Пружина (Разделитель посередине) */
 .notebook-spine {
-    width: 24px;
-    background: #1c1510;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-    z-index: 10;
+    width: 24px; background: #1c1510; display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding: 10px 0; z-index: 10;
 }
-.ring {
-    width: 32px;
-    height: 10px;
-    background: linear-gradient(90deg, #423830, #fff, #423830); /* Эффект металлических колец */
-    border-radius: 5px;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-}
+.ring { width: 32px; height: 10px; background: linear-gradient(90deg, #423830, #fff, #423830); border-radius: 5px; box-shadow: 0 3px 5px rgba(0,0,0,0.3); }
 
-/* Рукописные шрифты */
-.handwritten-title {
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Имитация размашистого почерка */
-    font-size: 32px;
-    color: #1a1512;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-.handwritten-text {
-    font-family: 'Georgia', serif;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #2b211a;
-}
+.handwritten-title { font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 32px; color: #1a1512; margin-top: 10px; margin-bottom: 15px; }
+.handwritten-text { font-family: 'Georgia', serif; font-size: 15px; line-height: 1.6; color: #2b211a; }
 .handwritten-text p { margin-top: 0; margin-bottom: 12px; }
-
-/* Кнопка закрытия блокнота */
-.notebook-close {
-    position: absolute;
-    top: -20px; right: -20px;
-    width: 40px; height: 40px;
-    background: #ff0033;
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+.notebook-close { position: absolute; top: -20px; right: -20px; width: 40px; height: 40px; background: #ff0033; color: #fff; border: 2px solid #fff; border-radius: 50%; font-size: 18px; font-weight: bold; cursor: pointer; z-index: 1100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 .notebook-close:hover { background: #b30024; }
+.nb-sketch { width: 130px; height: 130px; border: 2px solid #2b211a; background: #000; margin: 15px auto; display: block; box-shadow: 2px 4px 10px rgba(0,0,0,0.2); }
 
-/* Стилизация внутренних мини-картинок лора */
-.nb-sketch {
-    width: 130px;
-    height: 130px;
-    border: 2px solid #2b211a;
-    background: #000;
-    margin: 15px auto;
-    display: block;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+/* 👻 СТИЛИ ДЛЯ ЖИВОГО КРАСНОГО ТЕКСТА К0_Х7 */
+.scary-word {
+    display: inline-block;
+    color: #b81414;
+    font-weight: bold;
+    transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1); /* Плавный отскок и возврат на место */
+    cursor: default;
+    /* Медленное спокойное покачивание по умолчанию */
+    animation: floatWord 3s ease-in-out infinite alternate;
 }
 
-@keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-@keyframes flicker { 0%, 100% { opacity: 0.99; } 50% { opacity: 1; } }
-@keyframes glitch {
-    0%, 14%, 49%, 50%, 99%, 100% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75); }
-    15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75); }
+/* Разные задержки анимации, чтобы слова качались несинхронно */
+.scary-word:nth-child(even) { animation-delay: 0.5s; animation-duration: 2.5s; }
+.scary-word:nth-child(3n) { animation-delay: 1s; animation-duration: 3.5s; }
+
+@keyframes floatWord {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-3px) rotate(1deg); }
 }
 
-/* Мобильная адаптация для разворота книги */
 @media (max-width: 768px) {
     .app-wrapper { flex-direction: column-reverse; }
-    .nav-sidebar {
-        width: 100%; height: 70px; flex-direction: row; justify-content: space-around; padding-top: 0;
-        border-right: none; border-top: 2px solid #00ff33; position: fixed; bottom: 0; left: 0;
-    }
+    .nav-sidebar { width: 100%; height: 70px; flex-direction: row; justify-content: space-around; padding-top: 0; border-right: none; border-top: 2px solid #00ff33; position: fixed; bottom: 0; left: 0; }
     .nav-item { height: 100%; width: 33%; font-size: 10px; }
     .nav-icon { font-size: 20px; margin-bottom: 4px; }
     .main-content { padding: 20px; padding-bottom: 100px; }
-    
-    /* Блокнот на мобилках сжимается, чтобы влезть в экран */
-    .doors-notebook {
-        width: 95%;
-        height: 85vh;
-        flex-direction: column; /* Страницы ложатся друг под друга */
-    }
+    .doors-notebook { width: 95%; height: 85vh; flex-direction: column; }
     .page-left { border-radius: 12px 12px 0 0; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
     .page-right { border-radius: 0 0 12px 12px; border-left: none; border-top: 1px solid rgba(0,0,0,0.1); }
-    .notebook-spine {
-        width: 100%; height: 16px; flex-direction: row; padding: 0 10px;
-    }
+    .notebook-spine { width: 100%; height: 16px; flex-direction: row; padding: 0 10px; }
     .ring { width: 10px; height: 24px; background: linear-gradient(180deg, #423830, #fff, #423830); }
     .notebook-close { top: 10px; right: 10px; }
 }
