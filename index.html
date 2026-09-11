@@ -10,14 +10,11 @@
 
     <div class="app-wrapper">
 
+        <!-- СЛАЙДБАР (Теперь 3 кнопки, лоры убрали) -->
         <div class="nav-sidebar">
             <div class="nav-item active" onclick="switchTab('objects', this)">
                 <div class="nav-icon">👤</div>
                 <span>Объекты</span>
-            </div>
-            <div class="nav-item" onclick="switchTab('lore', this)">
-                <div class="nav-icon">📜</div>
-                <span>Лоры</span>
             </div>
             <div class="nav-item" onclick="switchTab('logs', this)">
                 <div class="nav-icon">👁️</div>
@@ -32,11 +29,12 @@
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
+            <!-- ВКЛАДКА: ОБЪЕКТЫ -->
             <div id="objects" class="tab-content active">
-                <p>База данных активных учетных записей. Обнаружены следующие профили:</p>
+                <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- КАРТОЧКА ГЕРОЯ ER_44 -->
-                <div class="character-card">
+                <!-- КАРТОЧКА ГЕРОЯ ER_44 (Добавили функцию клика) -->
+                <div class="character-card clickable" onclick="openJournal('er_44')">
                     <div class="avatar-box">
                         <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
                         <div class="scanline"></div>
@@ -50,8 +48,8 @@
                     </div>
                 </div>
 
-                <!-- КАРТОЧКА БОССА K0_X7 -->
-                <div class="character-card" style="margin-top: 25px; border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
+                <!-- КАРТОЧКА БОССА K0_X7 (Добавили функцию клика) -->
+                <div class="character-card clickable" onclick="openJournal('k0_x7')" style="margin-top: 25px; border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
                     <div class="avatar-box" style="border-color: #ff0033;">
                         <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
                         <div class="scanline" style="background: rgba(255, 0, 51, 0.5);"></div>
@@ -64,30 +62,11 @@
                         <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
                     </div>
                 </div>
-
             </div>
 
-            <div id="lore" class="tab-content">
-                <p>Архивные текстовые данные о субъектах системы NoMorePlayersLULZ:</p>
-                
-                <div style="border-left: 3px solid #00ff33; padding-left: 15px; margin-bottom: 25px;">
-                    <h3 style="color: #00ff33; margin-top: 0; text-transform: uppercase;">[ДАННЫЕ_ER_44]</h3>
-                    <p style="font-size: 14px; line-height: 1.6; color: #d1d1d1;">
-                        Субъект ER_44 является ключевым элементом стабильности текущего сервера. Проявляет аномально высокий уровень владения клинковым оружием формата R6. По заверению очевидцев, он остаётся единственным, кто пытается противостоять заражению исходного кода. Все попытки вируса переписать его статус пока что блокируются внутренней защитой.
-                    </p>
-                </div>
-
-                <div style="border-left: 3px solid #ff0033; padding-left: 15px;">
-                    <h3 style="color: #ff0033; margin-top: 0; text-transform: uppercase;">[ПРОЦЕСС_K0_X7]</h3>
-                    <p style="font-size: 14px; line-height: 1.6; color: #d1d1d1;">
-                        Несанкционированный фоновый скрипт. Известен среди уцелевших как «ШВЫ». Проникает в игровые сессии под видом критических графических багов. Буквально выворачивает наизнанку аватары пользователей, заменяя их данные повреждёнными строками кода. На данный момент стёр информацию о 98% игроков.
-                    </p>
-                </div>
-            </div>
-
+            <!-- ВКЛАДКА: ЛОГИ -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
-                
                 <div class="password-section">
                     <p style="margin-top: 0;">ВВЕДИТЕ ДЕКОДИРОВАННЫЙ КЛЮЧ С ДИСКОРД-СЕРВЕРА:</p>
                     <input type="text" id="passInput" placeholder="Код...">
@@ -96,6 +75,7 @@
                 </div>
             </div>
 
+            <!-- ВКЛАДКА: ФАЙЛЫ -->
             <div id="files" class="tab-content">
                 <p>Архив системных утилит. Все внешние зеркала отключены.</p>
                 <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
@@ -106,6 +86,17 @@
 
         </div>
 
+    </div>
+
+    <!-- ТВОЙ КРУТОЙ ВЫЕЗЖАЮЩИЙ ЖУРНАЛ/БЛОКНОТ -->
+    <div id="journalPanel" class="bottom-journal">
+        <div class="journal-header">
+            <span id="journalTitle">[ЗАГРУЗКА ЖУРНАЛА...]</span>
+            <button class="close-btn" onclick="closeJournal()">X</button>
+        </div>
+        <div class="journal-body">
+            <div id="journalContent">Текст лора...</div>
+        </div>
     </div>
 
     <script src="script.js"></script>
