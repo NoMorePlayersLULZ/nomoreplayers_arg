@@ -10,7 +10,7 @@
 
     <div class="app-wrapper">
 
-        <!-- СЛАЙДБАР -->
+        <!-- НАВИГАЦИЯ -->
         <div class="nav-sidebar">
             <div class="nav-item active" onclick="switchTab('objects', this)">
                 <div class="nav-icon">👤</div>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <!-- ОСНОВНОЙ БЛОК -->
         <div class="main-content">
             <h1 class="glitch">NoMorePlayersLULZ // RECOVERY.sys</h1>
 
@@ -34,7 +34,7 @@
             <div id="objects" class="tab-content active">
                 <p>База данных системных профилей. Кликните на карточку, чтобы открыть журнал объекта:</p>
                 
-                <!-- КАРТОЧКА ER_44 -->
+                <!-- КАРТОЧКА ГЕРОЯ ER_44 -->
                 <div class="character-card clickable" onclick="openJournal('er_44')">
                     <div class="avatar-box">
                         <img src="ER_44.png" alt="ER_44" onerror="this.src='https://placeholder.com'">
@@ -59,7 +59,7 @@
                         <h2 style="color: #ff0033;">OBJECT: K0_X7</h2>
                         <p><strong style="color: #ff0033;">КЛАСС:</strong> VIRUS</p>
                         <p><strong style="color: #ff0033;">СТАТУС:</strong> <span class="status-blink" style="color: #ff0033;">ACTIVE</span></p>
-                        <div class="hp-bar-text style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
+                        <div class="hp-bar-text" style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
                         <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
                     </div>
                 </div>
@@ -85,18 +85,18 @@
                 </div>
             </div>
 
-        </div> <!-- Конец main-content -->
+        </div>
 
-    </div> <!-- Конец app-wrapper -->
+    </div>
 
-    <!-- ВЫЕЗЖАЮЩИЙ ЖУРНАЛ/БЛОКНОТ (Теперь он строго там, где нужно) -->
+    <!-- ИНТЕРАКТИВНЫЙ БЛОКНОТ -->
     <div id="journalPanel" class="bottom-journal">
         <div class="journal-header">
-            <span id="journalTitle">[ЗАГРУЗКА ЖУРНАЛА...]</span>
+            <span id="journalTitle">[ЗАГРУЗКА...]</span>
             <button class="close-btn" onclick="closeJournal()">X</button>
         </div>
         <div class="journal-body">
-            <div id="journalContent">Текст лора...</div>
+            <div id="journalContent">Загрузка данных...</div>
         </div>
     </div>
 
