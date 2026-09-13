@@ -2,13 +2,9 @@ var isAl07Unlocked = false;
 
 function switchTab(tabId, element) {
     var tabs = document.getElementsByClassName("tab-content");
-    for (var i = 0; i < tabs.length; i++) { 
-        tabs[i].classList.remove("active"); 
-    }
+    for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove("active"); }
     var navItems = document.getElementsByClassName("nav-item");
-    for (var i = 0; i < navItems.length; i++) { 
-        navItems[i].classList.remove("active"); 
-    }
+    for (var i = 0; i < navItems.length; i++) { navItems[i].classList.remove("active"); }
     document.getElementById(tabId).classList.add("active");
     element.classList.add("active");
     closeJournal();
@@ -68,7 +64,7 @@ function openJournal(charId) {
             `;
             contentRight.innerHTML = `
                 <p>...Критическая ошибка чтения</p>
-                <p>Единственное, что удалось вытащить из поврежденных секторов памяти — это бесконечный системный код статуса: <strong>-129019208941897</strong>.</p>
+                <p>Единственное, что удалось вытащить из поврежденных секторов памяти — это системный код статуса: <strong>-129019208941897</strong>.</p>
             `;
         }
     }
@@ -84,23 +80,15 @@ document.addEventListener('mousemove', function(e) {
     var words = document.getElementsByClassName('scary-word');
     if (words.length === 0) return;
     for (var i = 0; i < words.length; i++) {
-        var word = words[i]; 
-        var rect = word.getBoundingClientRect();
-        var wordX = rect.left + rect.width / 2; 
-        var wordY = rect.top + rect.height / 2;
-        var diffX = e.clientX - wordX; 
-        var diffY = e.clientY - wordY;
+        var word = words[i]; var rect = word.getBoundingClientRect();
+        var wordX = rect.left + rect.width / 2; var wordY = rect.top + rect.height / 2;
+        var diffX = e.clientX - wordX; var diffY = e.clientY - wordY;
         var distance = Math.sqrt(diffX * diffX + diffY * diffY);
         if (distance < 80) {
             var angle = Math.atan2(diffY, diffX);
-            var pushX = -Math.cos(angle) * 45; 
-            var pushY = -Math.sin(angle) * 25;
-            word.style.transform = `translate(${pushX}px, ${pushY}px) scale(1.15)`; 
-            word.style.color = "#ff0000";
-        } else { 
-            word.style.transform = "translate(0, 0)"; 
-            word.style.color = "#b81414"; 
-        }
+            var pushX = -Math.cos(angle) * 45; var pushY = -Math.sin(angle) * 25;
+            word.style.transform = `translate(${pushX}px, ${pushY}px) scale(1.15)`; word.style.color = "#ff0000";
+        } else { word.style.transform = "translate(0, 0)"; word.style.color = "#b81414"; }
     }
 });
 
@@ -109,39 +97,24 @@ function checkAccess() {
     var error = document.getElementById("errText");
 
     if (input === "er_44") {
-        error.style.color = "#00ff33"; 
-        error.innerText = "КЛЮЧ ПРИНЯТ. ДОСТУП К ЗЕРКАЛУ ДИСКА ОТКРЫТ."; 
-        error.style.display = "block";
-        alert("КЛЮЧ ПРИНЯТ. ДОСТУП К ЗЕРКАЛУ ДИСКА ОТКРЫТ."); 
-        window.location.href = "https://yandex.ru"; 
+        error.style.color = "#00ff33"; error.innerText = "КЛЮЧ ПРИНЯТ. ДОСТУП К ЗЕРКАЛУ ДИСКА ОТКРЫТ."; error.style.display = "block";
+        alert("КЛЮЧ ПРИНЯТ. ДОСТУП К ЗЕРКАЛУ ДИСКА ОТКРЫТ."); window.location.href = "https://yandex.ru"; 
     } 
     else if (input === "2006") {
         isAl07Unlocked = true;
-        error.style.color = "#00ff33"; 
-        error.innerText = "ДОСТУП К АРХИВУ AL_07 ОТКРЫТ. ПРОВЕРЬТЕ ВКЛАДКУ ОБЪЕКТОВ."; 
-        error.style.display = "block";
-        
-        document.body.style.backgroundColor = "#003300"; 
-        setTimeout(function() { document.body.style.backgroundColor = "#050505"; }, 300);
-        
+        error.style.color = "#00ff33"; error.innerText = "ДОСТУП К АРХИВУ AL_07 ОТКРЫТ. ПРОВЕРЬТЕ ВКЛАДКУ ОБЪЕКТОВ."; error.style.display = "block";
+        document.body.style.backgroundColor = "#003300"; setTimeout(function() { document.body.style.backgroundColor = "#050505"; }, 300);
         document.getElementById("secretCard").style.borderColor = "#00ff33";
         document.getElementById("secretCard").style.boxShadow = "0 0 15px rgba(0, 255, 51, 0.3)";
         document.getElementById("secretAvatarBox").innerHTML = '<img src="AL_07.png" alt="AL_07" onerror="this.parentNode.innerHTML=\`<div style=\\\'font-size: 24px; color: #00ff33; text-align:center;\\\'>AL_07<br>NO_IMG</div>\`">';
         document.getElementById("secretAvatarBox").style.borderColor = "#00ff33";
-        
         document.getElementById("secretInfoBox").innerHTML = `
-            <h2>OBJECT: AL_07</h2>
-            <p><strong>КЛАСС:</strong> SUPPORT</p>
-            <p><strong>СТАТУС:</strong> <span class="status-blink" style="color: #ffcc00;">RECOVERED</span></p>
-            <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 42%</div>
-            <div class="hp-container"><div class="hp-bar" style="width: 42%;"></div></div>
+            <h2>OBJECT: AL_07</h2><p><strong>КЛАСС:</strong> SUPPORT</p><p><strong>СТАТУС:</strong> <span class="status-blink" style="color: #ffcc00;">RECOVERED</span></p>
+            <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 42%</div><div class="hp-container"><div class="hp-bar" style="width: 42%;"></div></div>
         `;
     } 
     else {
-        error.style.color = "#ff0033"; 
-        error.innerText = "ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА."; 
-        error.style.display = "block";
-        document.body.style.backgroundColor = "#220000"; 
-        setTimeout(function() { document.body.style.backgroundColor = "#050505"; }, 200);
+        error.style.color = "#ff0033"; error.innerText = "ОШИБКА ДОСТУПА. ПОПРОБУЙТЕ СНОВА."; error.style.display = "block";
+        document.body.style.backgroundColor = "#220000"; setTimeout(function() { document.body.style.backgroundColor = "#050505"; }, 200);
     }
 }
