@@ -64,7 +64,7 @@ function openJournal(charId) {
             `;
             contentRight.innerHTML = `
                 <p>...Критическая ошибка чтения</p>
-                <p>Единственное, что удалось вытащить из поврежденных секторов памяти — это системный код статуса: <strong>-129019208941897</strong>.</p>
+                <p>Единственное, что удалось вытащить из поврежденных секторов памяти — это бесконечный системный код статуса: <strong>-129019208941897</strong>.</p>
             `;
         }
     }
@@ -108,9 +108,14 @@ function checkAccess() {
         document.getElementById("secretCard").style.boxShadow = "0 0 15px rgba(0, 255, 51, 0.3)";
         document.getElementById("secretAvatarBox").innerHTML = '<img src="AL_07.png" alt="AL_07" onerror="this.parentNode.innerHTML=\`<div style=\\\'font-size: 24px; color: #00ff33; text-align:center;\\\'>AL_07<br>NO_IMG</div>\`">';
         document.getElementById("secretAvatarBox").style.borderColor = "#00ff33";
+        
         document.getElementById("secretInfoBox").innerHTML = `
-            <h2>OBJECT: AL_07</h2><p><strong>КЛАСС:</strong> SUPPORT</p><p><strong>СТАТУС:</strong> <span class="status-blink" style="color: #ffcc00;">RECOVERED</span></p>
-            <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 42%</div><div class="hp-container"><div class="hp-bar" style="width: 42%;"></div></div>
+            <h2>OBJECT: AL_07</h2>
+            <p><strong>КЛАСС:</strong> SUPPORT</p>
+            <p><strong>СТАТУС:</strong> <span class="status-blink" style="color: #ffcc00;">RECOVERED</span></p>
+            <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 42%</div>
+            <div class="hp-container"><div class="hp-bar" style="width: 42%;"></div></div>
+            <div style="font-size: 11px; margin-top: 8px; color: #00ff33; opacity: 0.8;">РАССЛЕДОВАНО ДОП. ЛОРА: 0%</div>
         `;
     } 
     else {
