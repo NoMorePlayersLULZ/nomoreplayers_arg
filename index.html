@@ -45,12 +45,11 @@
                             <p><strong>СТАТУС:</strong> <span class="status-blink">NORMAL</span></p>
                             <div class="hp-bar-text">ЦЕЛОСТНОСТЬ ДАННЫХ: 100%</div>
                             <div class="hp-container"><div class="hp-bar"></div></div>
-                            <!-- ТВОЯ НОВАЯ СТРОЧКА ТУТ -->
-                            <div style="font-size: 11px; margin-top: 8px; color: #00ff33; opacity: 0.8;">РАССЛЕДОВАНО ЛОРА: 0%</div>
+                            <div style="font-size: 11px; margin-top: 8px; color: #00ff33; opacity: 0.8;">РАССЛЕДОВАНО ДОП. ЛОРА: 0%</div>
                         </div>
                     </div>
 
-                    <!-- КАРТОЧКА БОССА K0_X7 -->
+                    <!-- КАРТОЧКА БОССА K0_X7 (Полоска теперь всегда видна как рамка) -->
                     <div class="character-card clickable" onclick="openJournal('k0_x7')" style="border-color: #ff0033; box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);">
                         <div class="avatar-box" style="border-color: #ff0033;">
                             <img src="K0_X7.png" alt="K0_X7" onerror="this.src='https://placeholder.com'">
@@ -60,13 +59,12 @@
                             <p><strong style="color: #ff0033;">КЛАСС:</strong> VIRUS</p>
                             <p><strong style="color: #ff0033;">СТАТУС:</strong> <span class="status-blink" style="color: #ff0033;">ACTIVE</span></p>
                             <div class="hp-bar-text" style="color: #ff0033;">СТАБИЛЬНОСТЬ СИСТЕМЫ: 0%</div>
-                            <div class="hp-container" style="border-color: #ff0033;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
-                            <!-- ТВОЯ НОВАЯ СТРОЧКА ТУТ -->
-                            <div style="font-size: 11px; margin-top: 8px; color: #ff0033; opacity: 0.8;">РАССЛЕДОВАНО ЛОРА: 0%</div>
+                            <div class="hp-container" style="border-color: #ff0033; display: block !important;"><div class="hp-bar" style="width: 0%; background: #ff0033;"></div></div>
+                            <div style="font-size: 11px; margin-top: 8px; color: #ff0033; opacity: 0.8;">РАССЛЕДОВАНО ДОП. ЛОРА: 0%</div>
                         </div>
                     </div>
 
-                    <!-- СЕКРЕТНАЯ КАРТОЧКА ДЛЯ ВЗЛОМА -->
+                    <!-- СЕКРЕТНАЯ КАРТОЧКА ??? -->
                     <div id="secretCard" class="character-card clickable" onclick="openJournal('unknown')" style="border-color: #555; box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);">
                         <div id="secretAvatarBox" class="avatar-box" style="border-color: #555; background: #111;">
                             <div style="font-size: 48px; color: #555; display: flex; align-items: center; justify-content: center; height: 100%;">?</div>
@@ -77,15 +75,13 @@
                             <p><strong style="color: #888;">СТАТУС:</strong> <span class="status-blink" style="color: #888; animation: blink 0.5s infinite;">-129019208941897</span></p>
                             <div class="hp-bar-text" style="color: #888;">ЦЕЛОСТНОСТЬ ФАЙЛОВ: NULL%</div>
                             <div class="hp-container" style="border-color: #555;"><div class="hp-bar" style="width: 0%; background: #555;"></div></div>
-                            <!-- ТВОЯ НОВАЯ СТРОЧКА ТУТ -->
-                            <div style="font-size: 11px; margin-top: 8px; color: #555;">РАССЛЕДОВАНО ЛОРА: 0%</div>
+                            <div style="font-size: 11px; margin-top: 8px; color: #555;">РАССЛЕДОВАНО ДОП. ЛОРА: 0%</div>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- ВКЛАДКА: ЛОГИ -->
             <div id="logs" class="tab-content">
                 <p>Доступ к логам сервера заблокирован внешним процессом <span class="censored">K0_X7</span>.</p>
                 <div class="password-section">
@@ -96,9 +92,8 @@
                 </div>
             </div>
 
-            <!-- ВКЛАДКА: ФАЙЛЫ -->
             <div id="files" class="tab-content">
-                <p>Архив системных утилит. Все внешние зеркала отключены.</p>
+                <p>Archive системных утилит. Все внешние зеркала отключены.</p>
                 <div style="border: 1px dashed #00ff33; padding: 15px; max-width: 400px; background: #0a0a0a;">
                     <p style="margin: 0; color: #ff0033;">[ДАННЫЕ_ЗАБЛОКИРОВАНЫ]</p>
                     <p style="font-size: 13px; color: #888; margin-top: 10px;">Разгадайте шифр во вкладке "Логи", чтобы восстановить соединение с облачным диском.</p>
@@ -108,7 +103,6 @@
         </div>
     </div>
 
-    <!-- КРУПНЫЙ БЛОКНОТ DOORS -->
     <div id="notebookOverlay" class="notebook-overlay" onclick="closeJournal()">
         <div class="doors-notebook" onclick="event.stopPropagation()">
             <button class="notebook-close" onclick="closeJournal()">✕</button>
